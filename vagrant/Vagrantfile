@@ -15,6 +15,7 @@ Vagrant.configure('2') do |config|
     vb.cpus = 4
   end
   config.vm.synced_folder '../c-things', '/home/vagrant/c-things'
+  config.vm.synced_folder '../cpp-stuff', '/home/vagrant/cpp-stuff'
 
   # install some packages
   config.vm.provision :shell, inline: <<-SHELL
