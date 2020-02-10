@@ -51,3 +51,21 @@ void prompt_int(char *prompt_text, int *input) {
 
   return;
 }
+
+
+void print_break_line(int num_new_lines) {
+  printf("---------------------------------");
+  for (int i = 0; i < num_new_lines; i++) {
+    printf("\n");
+  }
+}
+
+
+void print_string(char *s) {
+
+  for (int i = 0; s[i] != '\0'; i++) {
+    printf("%d -> %c\n", i, s[i]);
+  }
+
+  return;
+}
