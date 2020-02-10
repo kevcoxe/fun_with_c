@@ -16,11 +16,12 @@ Vagrant.configure('2') do |config|
   end
   config.vm.synced_folder '../c-things', '/home/vagrant/c-things'
   config.vm.synced_folder '../cpp-stuff', '/home/vagrant/cpp-stuff'
+  config.vm.provision :file, source: 'files/tmux.conf', destination: '/home/vagrant/.tmux.conf'
 
   # install some packages
   config.vm.provision :shell, inline: <<-SHELL
     apt-get update
-    apt-get install vim git tmux -y
+    apt-get install vim git tmux gcc gdb -y
   SHELL
 
 end
