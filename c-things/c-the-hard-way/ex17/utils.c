@@ -54,7 +54,7 @@ void prompt_int(char *prompt_text, int *input) {
 
 
 void print_break_line(int num_new_lines) {
-  printf("---------------------------------");
+  printf("-------------------------------------------------------------------------------------------------------");
   for (int i = 0; i < num_new_lines; i++) {
     printf("\n");
   }

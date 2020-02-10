@@ -6,6 +6,7 @@
 #include <string.h>
 
 #include "consts.h"
+#include "utils.h"
 #include "db_functions.h"
 
 
@@ -20,7 +21,7 @@ void die(const char *message) {
 }
 
 void Address_print(struct Address *addr) {
-  printf("%d %s %s\n", addr->id, addr->name, addr->email);
+  printf("%-3d %-50s %-50s\n", addr->id, addr->name, addr->email);
   return;
 }
 
@@ -151,6 +152,8 @@ void Database_list(struct Connection *conn) {
 
   struct Database *db = conn->db;
 
+  printf("%-3s %-50s %-50s\n", "ID", "NAME", "EMAIL");
+  print_break_line(1);
   for (int i = 0; i < MAX_ROWS; i++) {
     struct Address *cur = &db->rows[i];
 

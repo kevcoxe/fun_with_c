@@ -19,10 +19,14 @@ void prompt_and_add(struct Connection *conn) {
   }
 
   char name[MAX_DATA];
-  prompt_string("please enter the name", name);
+  char name_prompt[MAX_DATA];
+  snprintf(name_prompt, MAX_DATA, "please enter the name (max %d)", MAX_DATA);
+  prompt_string(name_prompt, name);
 
   char email[MAX_DATA];
-  prompt_string("please enter the email", email);
+  char email_prompt[MAX_DATA];
+  snprintf(email_prompt, MAX_DATA, "please enter the email (max %d)", MAX_DATA);
+  prompt_string(name_prompt, email);
 
   Database_set(conn, open_id, name, email);
   Database_write(conn);
@@ -99,7 +103,6 @@ void interactive_prompt(struct Connection *conn) {
         break;
 
       case 'l':
-        print_break_line(1);
         Database_list(conn);
         break;
 
